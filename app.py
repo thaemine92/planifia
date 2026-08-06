@@ -40,10 +40,6 @@ if "messages" not in st.session_state:
 
 # Affichage de l'historique des messages (en ignorant le message système initial)
 for message in st.session_state.messages:
-    if message["role"] != "system":
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
-
     if isinstance(message, dict) and message.get("role") != "system":
         with st.chat_message(message["role"]):
             st.markdown(message.get("content", ""))
