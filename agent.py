@@ -148,7 +148,7 @@ def executer_agent(messages_historique, username: str = None, user_role: str = N
         
         # Si on a les infos utilisateur, enrichir le contexte
         if user_info:
-            # Ajouter le contexte utilisateur comme premier message si ce n'est pas déjà fait
+            # Ajouter le contexte utilisateur comme premier message si ce n'a pas été fait
             context_exists = any(
                 msg.get("role") == "system" and 
                 (user_info["full_name"] in msg.get("content", "") or user_info["role"] in msg.get("content", ""))

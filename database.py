@@ -17,7 +17,7 @@ class UserDB(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String, unique=True, index=True)
-    password_hash = Column(String)  # SHA256 hash
+    password_hash = Column(String)  # SHA256 hash pour le mdp
     role = Column(String, default="patient")  # "patient" ou "medecin"
     full_name = Column(String)
 

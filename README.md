@@ -71,11 +71,6 @@ L'interface sera accessible sur `http://localhost:8501`
    - Médecin: `dr.yohan` / `password123`
    - Patient: `lewis` / `password123`
 
-### Méthode 2 : Interface Streamlit seule (version basique)
-
-```bash
-streamlit run app.py
-```
 
 ### Endpoints API
 

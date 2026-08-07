@@ -63,7 +63,7 @@ def verifier_creneau_disponible(date_time: str):
         db.close()
 
 def annuler_rendez_vous(client_name: str, date_time: str):
-    """Annule un rendez-vous existant en fonction du nom du client et de la date."""
+    """Annule un rendez-vous en fonction de la date et du nom du client."""
     db = SessionLocal()
     try:
         rdv = (

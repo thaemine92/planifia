@@ -28,7 +28,7 @@ if "session_id" not in st.session_state:
 # Initialisation de l'historique des messages dans l'état de Streamlit
 if "messages" not in st.session_state:
     st.session_state.messages = [
-        {
+        { 
             "role": "system",
             "content": (
                 "Tu es un assistant virtuel professionnel de gestion de rendez-vous. "

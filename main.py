@@ -105,7 +105,7 @@ def register_endpoint(request: RegisterRequest):
         if existing:
             raise HTTPException(status_code=400, detail="Nom d'utilisateur déjà utilisé")
         
-        # Créer le nouvel utilisateur
+        # Création du nouvel utilisateur
         new_user = UserDB(
             username=request.username,
             password_hash=UserDB.hash_password(request.password),
