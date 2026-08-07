@@ -150,22 +150,26 @@ def chat_page():
                             "session_id": st.session_state.session_id,
                             "message": prompt,
                             "token": token
-                        }
+                        },
+                        timeout=30  # Timeout de 30 secondes
                     )
                     
                     if response.status_code == 200:
                         result = response.json()
                         st.markdown(result["response"])
-                        # Ajouter la réponse à l'historique
                         st.session_state.messages.append({
-                            "role": "assistant", 
+                            "role": "assistant",
                             "content": result["response"]
                         })
                     else:
-                        st.error(f"Erreur: {response.text}")
-                        
+                        st.error(f"Erreur API: {response.status_code} - {response.text}")
+
+                except requests.exceptions.Timeout:
+                    st.error("L'API ne répond pas. Vérifiez qu'elle est bien lancée (python main.py)")
+                except requests.exceptions.ConnectionError:
+                    st.error("Impossible de se connecter à l'API. Vérifiez l'URL et que le serveur est démarré.")
                 except Exception as e:
-                    st.error(f"Erreur de connexion à l'API: {str(e)}")
+                    st.error(f"Erreur inattendue: {str(e)}")
 
 
 def main():
